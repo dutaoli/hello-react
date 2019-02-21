@@ -1,0 +1,30 @@
+无状态组件，只接受props，没有生命周期，也就是函数式组件。
+写成函数式声明的好处：
+1.不需要类声明，可以避免大量的extends 和 contructor 这类代码
+2.不需要显式声明this关键字，而在ES6声明时会周董将this绑定到当前作用域(有状态组件，官方推荐的写法)
+
+如果已经声明为函数组件，有需要生命周期怎么办？ 这时候就要用到高阶组件，redux就可以处理这样的问题
+
+子组件通过回调函数传递给父组件
+兄弟之间传数据： 原理就是通过父节点转传
+
+component 的生命周期函数：
+组件三个状态： Mounting Updating Unmounting
+1.初始化阶段（Mounting）
+constructor()
+getDefaultProps()
+getinitialState()
+componentWillMount()
+render()
+componentDidMount()
+
+2.运行时状态 （Updating）
+componentWillRecieveProps(nextProps)
+shouldComponentUpdate(nextProps, nextState)   这个勾子函数可以增加自己的算法，返回true/false来控制组建时否render， 很重要
+componentWillUpdate(netProps, nextState)
+render()
+componentDidUpdate(prevProps, prevState)
+
+3.销毁阶段 (Unmounting)
+componentWillUnmount()
+
