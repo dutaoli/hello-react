@@ -5,4 +5,9 @@ export const addTodo = text => ({
     text
 })
 
+export const deleteTodo = id => ({
+    type: types.DELETE_TODO,
+    id
+})
+
 //actions约定要干什么

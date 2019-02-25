@@ -20,7 +20,7 @@ export default class TodoTextInput extends Component{
         this.setState({ text: e.target.value });
     } 
     handleBlur = e => {
-        if(!this.props.netTodo) {
+        if(!this.props.newTodo) {
             this.props.onSave(e.target.value);
         }
     }   

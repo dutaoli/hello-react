@@ -1,4 +1,4 @@
-import { ADD_TODO } from  '../contants/ActionTypes';
+import { ADD_TODO, DELETE_TODO } from  '../contants/ActionTypes';
 
 const iniitialState = [
     {
@@ -20,6 +20,10 @@ export default function todos(state=iniitialState, action) {
                 ...state
                 //展开state数组的每一项到当前数组
             ]
+        case DELETE_TODO:
+            return state.filter(todo => 
+                todo.id !== action.id
+            )
         default:
             return state
     }
