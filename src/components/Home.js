@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import PropTypes from 'prop-types';
 
 export default class Home extends Component {
@@ -9,15 +8,15 @@ export default class Home extends Component {
       age: props.age,
       headerLink: props.initialName
     }
+    this.onMakeOlder = this.onMakeOlder.bind(this);
     console.log('constructor');
   }
 
   onMakeOlder() {
-    this.setState({
-      age: this.state.age + 3
-    })
-
-    console.log(this);
+    this.setState( state => ({
+      age: state.age + 3
+    }));
+   console.log(this);
   }
 
   handleGreet() {
@@ -41,7 +40,7 @@ export default class Home extends Component {
   }
   shouldComponentUpdate(nextProps, nextState) {
     console.log("component should update", nextProps, nextState);
-    return false;
+    return true;
   }
   componentWillUpdate(nextProps, nextState) {
     console.log("component will update", nextProps, nextState);
@@ -68,8 +67,8 @@ export default class Home extends Component {
             </ul>
             <div>{this.props.children}</div>
           </div>
-          <button className="btn btn-primary" onClick={this.onMakeOlder.bind(this)}>Add age</button>
-          <button className="btn btn-primary" onClick={() => {this.onMakeOlder()}}>Make me older</button>
+          <button className="btn btn-primary" onClick={this.onMakeOlder}>Add age</button>
+          <button className="btn btn-primary" onClick={this.onMakeOlder}>Make me older</button>
           <hr />
           <button onClick={this.handleGreet.bind(this)}>Greet</button>
           <br />

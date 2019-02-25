@@ -16,7 +16,9 @@ class App extends Component {
   }
 
   handleChangeLink(newLinkName){
-    this.setState({headerLink: newLinkName})
+    this.setState(() => ({
+      headerLink: newLinkName
+    }));
   }
 
   handleUnmount(){
