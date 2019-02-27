@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class TodoTextInput extends Component{
+export default class TodoTextInput extends Component {
     
     state = {
         text: this.props.text || ''
@@ -23,7 +23,8 @@ export default class TodoTextInput extends Component{
         if(!this.props.newTodo) {
             this.props.onSave(e.target.value);
         }
-    }   
+    }
+    
     render(){
         return(
             <input type="text"
